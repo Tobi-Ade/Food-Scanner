@@ -1,0 +1,58 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  python3.12
+  Sample SAM Template for FastAPI Food Scanner
+
+Globals:
+  Function:
+    Timeout: 150
+  Api:
+    BinaryMediaTypes:
+      - "image/*"
+      - "multipart/form-data"
+
+Resources:
+  FoodScannerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      MemorySize: 3008  
+      Environment:
+        Variables:
+          BUCKET_NAME: healthy-basket-image-input
+          TABLE_NAME: healthy-basket-metadata
+          # Fix for PyTorch/torchvision cache directories
+          TORCH_HOME: /tmp/.torch
+          TORCHVISION_HOME: /tmp/.torchvision
+          # Fix for matplotlib cache directory
+          MPLCONFIGDIR: /tmp/matplotlib
+          # Optional: Set HuggingFace cache if you use it
+          HF_HOME: /tmp/.huggingface
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonS3FullAccess
+        - AmazonDynamoDBFullAccess
+        - Statement:
+          - Effect: Allow
+            Action:
+              - "bedrock:InvokeModel"
+            Resource: "*"
+      Events:
+        ApiEvents:
+          Type: HttpApi
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: ./app
+      DockerTag: python3.12-v1  
+
+Outputs:
+  FoodScannerURL:
+    Description: "API Gateway endpoint URL for Prod stage for Food Scanner function"
+    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/"
+  FoodScannerFunction:
+    Description: "Food Scanner Lambda Function ARN"
+    Value: !GetAtt FoodScannerFunction.Arn
+  FoodScannerIamRole:
+    Description: "Implicit IAM Role created for FastAPI function"
+    Value: !GetAtt FoodScannerFunctionRole.Arn
