@@ -75,16 +75,16 @@
 
 Deployment is managed using **AWS Serverless Application Model (SAM)** for consistency, scalability, and automation.
 
-### Project Structure
+```bash
 /food-scanner/
-├── template.yaml # SAM template definition
-├── app/
-│ ├── lambda_handler.py # Main Lambda function
-│ ├── model_client.py # SageMaker inference call
-│ ├── llm_helper.py # Bedrock LLM interaction
-│ └── utils.py # Utilities (S3, logging, etc.)
-├── requirements.txt # Lambda dependencies
+├── template.yaml         # SAM template definition
+├── samconfig.toml
+├── Dockerfile
+├── utils                 # helper functions
+├── main.py               # entry point
+├── requirements.txt      # Lambda dependencies
 └── README.md
+```
 
 
 ### Deployment Steps
