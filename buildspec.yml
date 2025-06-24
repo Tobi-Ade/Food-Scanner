@@ -1,0 +1,41 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.12
+    commands:
+      - echo Installing dependencies...
+      - pip install aws-sam-cli
+  
+  pre_build:
+    commands:
+      - echo "pre_build phase"
+      - echo "Validating sam template..."
+      - sam validate
+      - echo "Installing Python dependencies..."
+      - pip install -r requirements.txt
+  
+  build:
+    commands:
+      - echo Building the application...
+      - sam build
+      - echo "SAM build completed successfully"
+  
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Starting deployment...
+      - sam deploy --no-confirm-changeset
+      - echo "SAM deploy completed successfully"
+
+artifacts:
+  files:
+    - template.yaml
+    - samconfig.toml
+    - .aws-sam/**/*
+  discard-paths: no
+
+cache:
+  paths:
+    - '/root/.cache/pip/**/*'

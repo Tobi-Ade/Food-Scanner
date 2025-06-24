@@ -43,7 +43,7 @@ Resources:
           Type: HttpApi
     Metadata:
       Dockerfile: Dockerfile
-      DockerContext: ./app
+      DockerContext: .
       DockerTag: python3.12-v1  
 
 Outputs:
