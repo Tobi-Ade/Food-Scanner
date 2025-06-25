@@ -7,4 +7,4 @@ capabilities = "CAPABILITY_IAM"
 resolve_s3 = true
 s3_prefix = "healthy-basket"
 disable_rollback = true
-image_repositories = [""]
+image_repositories = ["FoodScannerFunction=061051241823.dkr.ecr.us-east-1.amazonaws.com/healthybasketd62632ba/foodscannerfunction97858decrepo"]

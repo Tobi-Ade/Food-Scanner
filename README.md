@@ -1,3 +1,5 @@
+git remote set-url origin https://github.com/Tobi-Ade/Food-Scanner.git
+git push origin main
 # Food Scanner – Smart Food Identification and Analysis App
 
 ## Overview
