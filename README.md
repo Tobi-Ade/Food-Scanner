@@ -50,6 +50,8 @@ git push origin main
 | **Amazon DynamoDB**    | Stores structured output for persistent access                          |
 | **SageMaker Notebooks**| Used to train and evaluate the CV model                                 |
 | **AWS SAM**            | Infrastructure as code and automated deployment                         |
+| **Amazon ECR**         | Docker images repository                                                |
+| **AWS CodePipeline**   | CI/CD                                                                   |
 
 ---
 
@@ -102,5 +104,8 @@ sam deploy --guided
 
 ## Sample API response
 ![Sample response](images/sample_response.png)
+
+## CI/CD Implementation with AWS CodePipeline
+![CI/CD](images/FoodScannerCICD.png)
 
 
