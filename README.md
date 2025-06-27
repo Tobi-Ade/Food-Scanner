@@ -2,15 +2,15 @@
 
 ## Overview
 
-**Food Scanner** is a smart, serverless application that allows users to scan a food item via image and receive a complete breakdown of:
+**Food Scanner** is a smart, serverless application that allows users to scan food items via image upload and receive a complete breakdown of:
 
 - **Food Name**
 - **Confidence Score** (model's confidence in the recognition)
 - **Food Summary**
-- **Nutrient Overview**
+- **Nutritional Overview**
 - **Health Assessment**
 
-#### The goal is to make dietary awareness fast, accessible, and intelligent using **Computer Vision**, **LLMs via Bedrock**, and **AWS AI services**.
+#### The goal is to make dietary awareness fast, accessible, and intelligent using **Computer Vision**, **LLMs via Amazon Bedrock**, and **AWS services**.
 #### The use of a custom computer vision model is to enhance the LLM capabilities to recognize food that we care about but it might not know!
 ---
 
