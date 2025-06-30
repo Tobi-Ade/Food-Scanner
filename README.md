@@ -106,5 +106,5 @@ sam deploy --guided
 ## CI/CD Implementation with AWS CodePipeline
 ![CI/CD](images/FoodScannerCICD.png)
 
-## Demo on Youtube
+## Demo on Youtube, click below.
 <a href="https://youtu.be/CmCFVQCAC3I" title="YouTube" target="_blank" rel="noreferrer"><img src="https://www.vectorlogo.zone/logos/youtube/youtube-icon.svg" alt="YouTube" width="30" height="30"/></a>
