@@ -97,6 +97,9 @@ sam build
 
 # Deploy with guided prompts
 sam deploy --guided
+
+# Clean up
+sam delete --stackname <stackname>
 ```
 
 
